@@ -1,5 +1,9 @@
 import { Item, GildedRose } from '@/gilded-rose';
 
+const backstage = 'Backstage passes to a TAFKAL80ETC concert';
+const sulfuras = 'Sulfuras, Hand of Ragnaros';
+const queso = 'Aged Brie';
+
 describe('Gilded Rose', () => {
   it(`cuando expira un producto, se degrada la calidad con el doble de velocidad`, () => {
 
@@ -32,8 +36,14 @@ describe('Gilded Rose', () => {
 
     })
 
-    it(`si la expiracion es menor que 10, aumenta su calidad en 2`, () => {
+    it(`si la expiracion , aumenta su calidad en 2`, () => {
 
+    })
+
+    it(`si la expiracion es 10 o menos, aumenta su calidad en 2`, () => {
+      const gildedRose = new GildedRose([new Item(backstage, 11, 8)]);
+      const items = gildedRose.updateQuality();
+      expect(items[0].quality).toBe(9);
     })
 
     it(`si la expiración es menor que 5, aumenta su calidad en 3`, () => {
