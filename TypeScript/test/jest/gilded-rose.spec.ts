@@ -6,7 +6,9 @@ const queso = 'Aged Brie';
 
 describe('Gilded Rose', () => {
   it(`cuando expira un producto, se degrada la calidad con el doble de velocidad`, () => {
-
+    const gildedRose = new GildedRose([new Item('aPrdocuto', 0, 10)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).toBe(8);
   })
 
   it(`la calidad de un artículo nunca puede ser negativa`, () => {
