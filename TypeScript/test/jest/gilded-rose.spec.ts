@@ -12,7 +12,9 @@ describe('Gilded Rose', () => {
   })
 
   it(`la calidad de un artículo nunca puede ser negativa`, () => {
-
+    const gildedRose = new GildedRose([new Item('aPrdocuto', 0, 0)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).toBe(0);
   })
 
   it(`la calidad de un artículo nunca será mayor que 50`, () => {
